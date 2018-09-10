@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">revel</string>
+    <string name="start_round">begin</string>
+    <string name="welcome">in a circle:</string>
+    <string name="line1">ask something secretly</string>
+    <string name="line2">answer something secretly</string>
+    <string name="line3">read a secret out loud</string>
+    <string name="line4">revel and repeat</string>
+    <string name="playerCount">number of players</string>
+    <string name="go">go</string>
+    <string name="playersJoinLeave">players can join and leave</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
