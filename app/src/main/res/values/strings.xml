@@ -11,5 +11,11 @@
     <string name="playersJoinLeave">players can join and leave</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="enterQuestion">type something for someone to respond to</string>
+    <string name="flavorTextDefault">once you get the message, hang up the phone</string>
+    <string name="next_player">Next Player</string>
+    <string name="questionAppears">question appears here</string>
+    <string name="answerAppears">answer appears here</string>
+    <string name="submit">Submit</string>
+    <string name="respondToAbove">respond to the above secretly</string>
 </resources>

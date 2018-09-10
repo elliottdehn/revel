@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/editQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textAutoCorrect"
+        android:gravity="center"
+        android:hint="@string/enterQuestion"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="@string/submit"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintTop_toBottomOf="@id/editQuestion" />
+
+    <TextView
+        android:id="@+id/questionShow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="center"
+        android:text="@string/questionAppears"
+        android:textColor="@color/colorAccent"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@id/guideline2"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/nextButton"
+        app:layout_constraintGuide_percent="0.43"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/answerShow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:text="@string/answerAppears"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/questionShow" />
+
+    <TextView
+        android:id="@+id/questionForPlayer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="center"
+        android:text="@string/questionAppears"
+        android:textColor="@color/colorAccent"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/editAnswer" />
+
+    <EditText
+        android:id="@+id/editAnswer"
+        android:inputType="textAutoCorrect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="@string/respondToAbove"
+        app:layout_constraintBottom_toTopOf="@id/flavorText" />
+
+    <TextView
+        android:id="@+id/flavorText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:text="@string/flavorTextDefault"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@id/nextButton" />
+
+    <Button
+        android:id="@+id/nextButton"
+        android:layout_width="match_parent"
+        android:textSize="20sp"
+        android:layout_height="80dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="@string/next_player"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+
+
+
+</android.support.constraint.ConstraintLayout>
