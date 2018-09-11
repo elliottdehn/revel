@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#404040</color>
-    <color name="colorPrimaryDark">#1a1a1a</color>
-    <color name="colorAccent">#f2f2f2</color>
+    <color name="colorPrimary">#404040</color> <!--for general use-->
+    <color name="colorPrimaryDark">#1a1a1a</color> <!--for the top bar-->
+    <color name="colorAccent">#f0f0f0</color>
+    <color name="textColorPrimary">#ffffff</color> <!-- for buttons -->
+    <color name="textColorSecondary">#f6f6f6</color>
+    <color name="textColorPrimaryDisableOnly">#ff0000</color>
+    <color name="textColorTertiary">#909090</color>
+    <color name="textColorHint">#808080</color>
+    <color name="windowBackground">#f9f9f9</color>
+
+    <!-- most of the above is just trying to fit material design, might not be used -->
+
+
     <color name="colorRed">#ff0000</color>
     <color name="colorOrange">#ff9900</color>
     <color name="colorYellow">#ffff00</color>

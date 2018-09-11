@@ -73,15 +73,13 @@ public class Intro extends Fragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        Button beginButton = (Button) getView().findViewById(R.id.beginButton);
+        Button beginButton = view.findViewById(R.id.beginButton);
         beginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mListener.onFragmentInteraction(R.id.beginButton); //let main know that the user has read the introduction
+                onButtonPressed(R.id.beginButton);
             }
         });
-
-
     }
 
     // TODO: Rename method, update argument and hook method into UI event

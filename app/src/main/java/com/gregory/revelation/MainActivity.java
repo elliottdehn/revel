@@ -38,6 +38,13 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
             FragmentTransaction transaction = fm.beginTransaction();
             transaction.replace(R.id.contentFragment, fragment);
             transaction.commit();
+        } else if (id == R.id.goButton) {
+            Fragment fragment = new GameField();
+
+            FragmentManager fm = getSupportFragmentManager();
+            FragmentTransaction transaction = fm.beginTransaction();
+            transaction.replace(R.id.contentFragment, fragment);
+            transaction.commit();
         }
     }
 }
