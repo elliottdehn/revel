@@ -5,12 +5,12 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".GameField">
-    <!--
     <EditText
         android:id="@+id/editQuestion"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:gravity="center"
+        android:visibility="invisible"
         android:hint="@string/enterQuestion"
         android:inputType="textAutoCorrect"
         app:layout_constraintTop_toTopOf="parent"
@@ -22,6 +22,7 @@
         android:layout_height="wrap_content"
         android:background="@color/colorPrimaryDark"
         android:gravity="center"
+        android:visibility="invisible"
         android:text="@string/questionAppears"
         android:textColor="@color/colorAccent"
         android:textSize="25sp" />
@@ -33,12 +34,12 @@
         android:background="@color/colorAccent"
         android:gravity="center"
         android:scrollbars="vertical"
+        android:visibility="invisible"
         android:text="@string/answerAppears"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@id/questionShow"
         app:layout_constraintBottom_toTopOf="@id/nextButton"/>
-    -->
 
     <TextView
         android:id="@+id/questionForPlayer"
@@ -48,6 +49,7 @@
         android:gravity="center"
         android:text="@string/questionAppears"
         android:textColor="@color/colorAccent"
+        android:visibility="invisible"
         android:textSize="25sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/editAnswer" />
@@ -58,6 +60,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:gravity="center"
+        android:visibility="invisible"
         android:hint="@string/respondToAbove"
         app:layout_constraintTop_toBottomOf="@id/questionForPlayer"
         app:layout_constraintBottom_toTopOf="@id/flavorText" />
@@ -68,6 +71,7 @@
         android:layout_height="wrap_content"
         android:background="@color/colorAccent"
         android:gravity="center"
+        android:visibility="invisible"
         android:text="@string/flavorTextDefault"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="15sp"

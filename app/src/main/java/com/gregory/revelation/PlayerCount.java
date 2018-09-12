@@ -9,6 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+
+import java.util.ArrayList;
 
 
 /**
@@ -83,7 +86,12 @@ public class PlayerCount extends Fragment {
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(int id) {
         if (mListener != null) {
-            mListener.onFragmentInteraction(id);
+            EditText playerCount = getView().findViewById(R.id.enterNumberPlayers);
+            String playerCountString = playerCount.getText().toString();
+            Integer playerCountInt = Integer.parseInt(playerCountString);
+            ArrayList<Object> gameFieldArgs = new ArrayList<>();
+            gameFieldArgs.add(playerCountInt);
+            mListener.onFragmentInteraction(id, gameFieldArgs);
         }
     }
 

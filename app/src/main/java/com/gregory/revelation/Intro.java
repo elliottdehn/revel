@@ -85,7 +85,7 @@ public class Intro extends Fragment {
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(int id) {
         if (mListener != null) {
-            mListener.onFragmentInteraction(id);
+            mListener.onFragmentInteraction(id, null);
         }
     }
 

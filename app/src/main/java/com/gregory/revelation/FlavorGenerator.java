@@ -3,6 +3,7 @@ package com.gregory.revelation;
 public class FlavorGenerator {
 
     /*these appear randomly on the game screen as a fun little thing*/
+    /*these are not meant to be professional and do not reflect professional behavior*/
     private static String[] texts = {
             "you exist. congratulations!",
             "truth is, we're all fucked up.",
@@ -12,7 +13,7 @@ public class FlavorGenerator {
             "if they make you feel small, lose their number",
             "when it's a tossup, choose to be kind.",
             "hate must never win.",
-            "listen to Pink Floyd some time.",
+            "listen to pink floyd some time.",
             "don't make people feel bad for liking things.",
             "thank you for playing my little game.",
             "like the game? tell your friends!",
@@ -43,9 +44,9 @@ public class FlavorGenerator {
             "life has a way of fixing itself.",
             "darling, you are definitely real.",
             "i love you.",
-            "old school runescape exists. you should play it.",
-            "strive for ethical consistency in your life.",
-            "try to think for yourself as much as possible.",
+            "old school runescape: you should play it.",
+            "find ethical inconsistencies in your life.",
+            "think for yourself as much as possible.",
             "we are all stardust.",
             "psychedelics are crazy.",
             "become an expert in something.",
@@ -53,7 +54,7 @@ public class FlavorGenerator {
             "a pet is great for your mental health.",
             "happiness is a journey, not a goal.",
             "this game doesn't even use the internet.",
-            "water is refreshing.",
+            "water is, by definition, refreshing.",
             "is water wet or does water get things wet?",
             "immigrants commit less crimes than citizens.",
             "college rules.",
@@ -94,18 +95,49 @@ public class FlavorGenerator {
             "if i don't make this, i won't make anything.",
             "if you don't laugh, you'll cry.",
             "don't let your dreams be memes.",
+            "don't let your memes be dreams",
             "the word meme predates the internet.",
             "i'm feeding off of your gps data (jk).",
             "alright.",
-            "ok."
+            "ok.",
+            "be careful of the milkman.",
+            "i am the milkman. my milk is amazing.",
+            "do not fear death. you've got to go some time.",
+            "guacamole is definitely pretty extra.",
+            "now introducing: fried coke.",
+            "if i had any more beefs with you, it'd be a farm",
+            "now introducing: red lemons.",
+            "now introducing: purple oranges.",
+            "please don't do coke in my bathroom",
+            "searching for cell signal...",
+            "hey there delilah.",
+            "what makes you think a man made this?",
+            "failed to add friend. she is too far away.",
+            "sorry, come again?",
+            "have you ever kissed a spider?",
+            "she was beautiful. her smile was radiant.",
+            "shelby put the 4 in 416",
+            "if you have ugly thoughts, see a counselor.",
+            "are you feeling it now?",
+            "this game is about relaxing with your friends.",
+            "have you ever tasted the color yellow?",
+            "kink shaming is bad. don't do it.",
+            "be excellent to each other.",
+            "man gets self in hole. gets out again. classic.",
+            "oh, how... how i wish you were here.",
+            "i wonder if anyone will ever play this game.",
+            "it would be embarrassing if this got popular.",
+            "wow, what just happened?",
+            "are you up or down?",
+            "this isn't even my final form.",
+            "before you touch anyone anywhere: ask.",
+            "consent is not just sexy: it's required.",
+            "drugs are fun, but terrible for productivity.",
+            "bad decisions will always catch up to you.",
+            "the world is one big, very kinky orgy."
     };
 
     public static String grabFlavor(){
-        return texts[getRandomIntegerBetweenRange(0, texts.length)];
-    }
-
-    public static int getRandomIntegerBetweenRange(int min, int max){
-        int x = (int)(Math.random()*((max-min)+1))+min;
-        return x;
+        return texts[Util.getRandomIntegerBetweenRange(0, texts.length)];
     }
 }

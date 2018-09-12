@@ -8,6 +8,8 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity implements OnFragmentInteractionListener {
 
     @Override
@@ -30,7 +32,8 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         }
     }
 
-    public void onFragmentInteraction(int id) {
+    //this method is really ugly. I need to find a better structure for the application/way to do this.
+    public void onFragmentInteraction(int id, List<Object> args) {
         if(id == R.id.beginButton) {
             Fragment fragment = new PlayerCount();
 
@@ -39,7 +42,22 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
             transaction.replace(R.id.contentFragment, fragment);
             transaction.commit();
         } else if (id == R.id.goButton) {
-            Fragment fragment = new GameField();
+            //this is pretty ugly...
+            Fragment fragment;
+            if(args != null){
+                if(args.size() > 0){
+                    Object firstArg = args.get(0);
+                    if(firstArg instanceof Integer){
+                        fragment = GameField.newInstance((int) firstArg);
+                    } else {
+                        fragment = GameField.newInstance(3);
+                    }
+                } else {
+                    fragment = GameField.newInstance(3);
+                }
+            } else {
+                fragment = GameField.newInstance(3);
+            }
 
             FragmentManager fm = getSupportFragmentManager();
             FragmentTransaction transaction = fm.beginTransaction();

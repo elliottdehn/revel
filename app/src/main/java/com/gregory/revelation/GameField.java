@@ -22,14 +22,10 @@ import android.widget.Button;
 public class GameField extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private static final String ARG_PARAM1 = "argPlayerCount";
 
     private OnFragmentInteractionListener mListener;
+    private GameBuffer mGameBuffer;
 
     public GameField() {
         // Required empty public constructor
@@ -39,16 +35,13 @@ public class GameField extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
      * @return A new instance of fragment GameField.
      */
     // TODO: Rename and change types and number of parameters
-    public static GameField newInstance(String param1, String param2) {
+    public static GameField newInstance(int bufferSize) {
         GameField fragment = new GameField();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putInt(ARG_PARAM1, bufferSize);
         fragment.setArguments(args);
         return fragment;
     }
@@ -56,9 +49,11 @@ public class GameField extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+        if(savedInstanceState == null) { //if we do this on rotation, the game will mess up
+            if (getArguments() != null) {
+                int playerCount = getArguments().getInt(ARG_PARAM1);
+                mGameBuffer = new GameBuffer(playerCount);
+            }
         }
     }
 
@@ -71,6 +66,7 @@ public class GameField extends Fragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        //set up visibility for first screen
         Button beginButton = view.findViewById(R.id.nextButton);
         beginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,10 +76,10 @@ public class GameField extends Fragment {
         });
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
+    //this is where we need to handle game state
     public void onButtonPressed(int id) {
         if (mListener != null) {
-            mListener.onFragmentInteraction(id);
+            mListener.onFragmentInteraction(id, null);
         }
     }
 
