@@ -8,7 +8,7 @@
     <string name="line4">revel and repeat</string>
     <string name="playerCount">number of players</string>
     <string name="go">go</string>
-    <string name="playersJoinLeave">players can join and leave</string>
+    <string name="playersJoinLeave">(players can join and leave freely)</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="enterQuestion">type something for someone to respond to</string>
@@ -18,6 +18,11 @@
     <string name="answerAppears">answer appears here</string>
     <string name="submit">Submit</string>
     <string name="respondToAbove">respond to the above secretly</string>
+    <string name="sameTurnToggle">allow random same-turn self-answers?</string>
+    <string name="numberHint">##</string>
+    <string name="defaultNumberPlayers">3</string>
+    <string name="suggestedNumberPlayers">suggested: 3</string>
+    <string name="minMaxNumberPlayers">minimum: 3 | maximum: 12</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

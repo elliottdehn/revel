@@ -134,7 +134,9 @@ public class FlavorGenerator {
             "consent is not just sexy: it's required.",
             "drugs are fun, but terrible for productivity.",
             "bad decisions will always catch up to you.",
-            "the world is one big, very kinky orgy."
+            "the world is one big, very kinky orgy.",
+            "what do you want from me?",
+            "should you stay or should you go?"
     };
 
     public static String grabFlavor(){

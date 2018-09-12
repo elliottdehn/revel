@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 
 
 /**
@@ -23,6 +24,7 @@ public class GameField extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "argPlayerCount";
+    private static final String ARG_PARAM2 = "argSameTurnSelfAnswerToggle";
 
     private OnFragmentInteractionListener mListener;
     private GameBuffer mGameBuffer;
@@ -38,10 +40,11 @@ public class GameField extends Fragment {
      * @return A new instance of fragment GameField.
      */
     // TODO: Rename and change types and number of parameters
-    public static GameField newInstance(int bufferSize) {
+    public static GameField newInstance(int bufferSize, boolean sameTurnSelfAnswer) {
         GameField fragment = new GameField();
         Bundle args = new Bundle();
         args.putInt(ARG_PARAM1, bufferSize);
+        args.putBoolean(ARG_PARAM2, sameTurnSelfAnswer);
         fragment.setArguments(args);
         return fragment;
     }
@@ -52,7 +55,8 @@ public class GameField extends Fragment {
         if(savedInstanceState == null) { //if we do this on rotation, the game will mess up
             if (getArguments() != null) {
                 int playerCount = getArguments().getInt(ARG_PARAM1);
-                mGameBuffer = new GameBuffer(playerCount);
+                boolean sameTurnSelfAnswer = getArguments().getBoolean(ARG_PARAM2);
+                mGameBuffer = new GameBuffer(playerCount, sameTurnSelfAnswer);
             }
         }
     }
@@ -67,13 +71,16 @@ public class GameField extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         //set up visibility for first screen
-        Button beginButton = view.findViewById(R.id.nextButton);
-        beginButton.setOnClickListener(new View.OnClickListener() {
+        EditText addQuestionEditText = view.findViewById(R.id.editQuestion);
+        addQuestionEditText.setVisibility(View.VISIBLE);
+        Button nextStageButton = view.findViewById(R.id.nextButton);
+        nextStageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onButtonPressed(R.id.nextButton);
             }
         });
+        nextStageButton.setText(R.string.submit);
     }
 
     //this is where we need to handle game state

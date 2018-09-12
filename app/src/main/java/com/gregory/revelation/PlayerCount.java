@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Switch;
+import android.widget.ToggleButton;
 
 import java.util.ArrayList;
 
@@ -83,15 +85,27 @@ public class PlayerCount extends Fragment {
         });
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(int id) {
         if (mListener != null) {
-            EditText playerCount = getView().findViewById(R.id.enterNumberPlayers);
-            String playerCountString = playerCount.getText().toString();
-            Integer playerCountInt = Integer.parseInt(playerCountString);
-            ArrayList<Object> gameFieldArgs = new ArrayList<>();
-            gameFieldArgs.add(playerCountInt);
-            mListener.onFragmentInteraction(id, gameFieldArgs);
+            View view = getView();
+            if(view != null){
+                EditText playerCount = getView().findViewById(R.id.enterNumberPlayers);
+                String playerCountString = playerCount.getText().toString();
+                Integer playerCountInt = Integer.parseInt(playerCountString);
+
+                Switch sameTurnSelfAnswerToggle = getView().findViewById(R.id.sameTurnToggle);
+                Boolean sameTurnObj = sameTurnSelfAnswerToggle.isChecked();
+
+                //this is an awful pattern. I need to fix this somehow.
+                //as long as I don't think of a better way, this is how it happens.
+                ArrayList<Object> gameFieldArgs = new ArrayList<>();
+                gameFieldArgs.add(playerCountInt);
+                gameFieldArgs.add(sameTurnObj);
+
+                mListener.onFragmentInteraction(id, gameFieldArgs);
+            } else {
+                //nothing. this should literally never happen.
+            }
         }
     }
 

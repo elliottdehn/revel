@@ -19,20 +19,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <EditText
-        android:id="@+id/enterNumberPlayers"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:textSize="80sp"
-        android:gravity="center"
-        android:background="@color/colorAccent"
-        android:inputType="number"
-        android:maxLength="2"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/numberPlayers"
-        app:layout_constraintBottom_toTopOf="@id/joinLeave"/>
-
     <TextView
         android:id="@+id/joinLeave"
         android:layout_width="match_parent"
@@ -40,10 +26,46 @@
         android:text="@string/playersJoinLeave"
         android:gravity="center"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="30sp"
+        android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/goButton"
-        app:layout_constraintTop_toBottomOf="@id/enterNumberPlayers"/>
+        app:layout_constraintTop_toBottomOf="@id/numberPlayers" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/suggestedNumberPlayers"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@id/enterNumberPlayers"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <EditText
+        android:id="@+id/enterNumberPlayers"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:text="@string/defaultNumberPlayers"
+        android:textSize="80sp"
+        android:gravity="center"
+        android:background="@color/colorAccent"
+        android:inputType="number"
+        android:maxLength="2"
+        android:hint="@string/numberHint"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/joinLeave"
+        app:layout_constraintBottom_toTopOf="@id/sameTurnToggle"/>
+
+    <Switch
+        android:id="@+id/sameTurnToggle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sameTurnToggle"
+        android:background="@color/colorAccent"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintTop_toBottomOf="@id/enterNumberPlayers"
+        app:layout_constraintBottom_toTopOf="@id/goButton"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
 
     <Button
         android:id="@+id/goButton"
