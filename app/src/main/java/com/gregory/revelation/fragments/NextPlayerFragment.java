@@ -10,16 +10,15 @@ import android.view.ViewGroup;
 
 import com.gregory.revelation.R;
 
-
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link AnswerQuestionFragment.OnFragmentInteractionListener} interface
+ * {@link NextPlayerFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link AnswerQuestionFragment#newInstance} factory method to
+ * Use the {@link NextPlayerFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AnswerQuestionFragment extends Fragment {
+public class NextPlayerFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -31,7 +30,7 @@ public class AnswerQuestionFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public AnswerQuestionFragment() {
+    public NextPlayerFragment() {
         // Required empty public constructor
     }
 
@@ -41,11 +40,11 @@ public class AnswerQuestionFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment AnswerQuestionFragment.
+     * @return A new instance of fragment NextPlayerFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static AnswerQuestionFragment newInstance(String param1, String param2) {
-        AnswerQuestionFragment fragment = new AnswerQuestionFragment();
+    public static NextPlayerFragment newInstance(String param1, String param2) {
+        NextPlayerFragment fragment = new NextPlayerFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -66,7 +65,7 @@ public class AnswerQuestionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_answer_question_fragment, container, false);
+        return inflater.inflate(R.layout.fragment_pass_the_phone, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

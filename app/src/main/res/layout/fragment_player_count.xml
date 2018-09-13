@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.PlayerCountFragment">
+    tools:context=".fragments.GameSettingsFragment">
 
     <TextView
         android:id="@+id/numberPlayers"
@@ -39,7 +39,7 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/goButton"/>
+        app:layout_constraintBottom_toTopOf="@id/button_startGame"/>
 
     <TextView
         android:id="@+id/countSuggestion"
@@ -81,16 +81,16 @@
         android:text="@string/sameTurnToggle"
         android:textColor="@color/colorPrimary"
         app:layout_constraintTop_toBottomOf="@id/enterNumberPlayers"
-        app:layout_constraintBottom_toTopOf="@id/goButton"
+        app:layout_constraintBottom_toTopOf="@id/button_startGame"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
 
     <Button
-        android:id="@+id/goButton"
+        android:id="@+id/button_startGame"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:background="@color/colorPrimary"
-        android:text="@string/go"
+        android:text="@string/button_startGame"
         android:textAllCaps="true"
         android:textColor="@color/colorAccent"
         android:textSize="20sp"

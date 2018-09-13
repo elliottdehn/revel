@@ -33,7 +33,7 @@ public class GameBuffer {
         return openQuestions.remove(Util.getRandomIntegerBetweenRange(0, openQuestions.size()));
     }
 
-    public void putOpenQuestion(String question){
+    public void addThought(String question){
 
         if(sameTurnFlag) {
             openQuestions.add(question);
@@ -48,7 +48,7 @@ public class GameBuffer {
     }
 
     //will return null if in State.NEED_ANSWER
-    public @Nullable Pair getQuestionAnswerPair(){
+    public @Nullable Pair removePair(){
         if(closedQuestions.size() > 0){
             Pair pair = closedQuestions.remove(Util.getRandomIntegerBetweenRange(0, closedQuestions.size()));
             return pair;
@@ -57,7 +57,7 @@ public class GameBuffer {
         }
     }
 
-    public void assignAnswer(String question, String answer){
+    public void addAnswer(String question, String answer){
         Pair pair = new Pair(question, answer);
         closedQuestions.add(pair);
         if(closedQuestions.size() >= this.bufferSize) {

@@ -75,7 +75,7 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/beginButton"
+        app:layout_constraintBottom_toTopOf="@+id/button_begin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -83,11 +83,11 @@
 
 
     <Button
-        android:id="@+id/beginButton"
+        android:id="@+id/button_intro"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:background="@color/colorPrimary"
-        android:text="@string/start_round"
+        android:text="@string/button_intro"
         android:textAllCaps="true"
         android:textColor="@color/colorAccent"
         android:textSize="20sp"

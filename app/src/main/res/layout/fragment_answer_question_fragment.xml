@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.AnswerQuestionFragment">
+    tools:context=".fragments.PostResponseFragment">
 
     <TextView
         android:id="@+id/textView_questionForPlayer"
@@ -32,7 +32,7 @@
         app:layout_constraintBottom_toTopOf="@id/button_doneReadingPair" />
 
     <Button
-        android:id="@+id/button_doneReadingPair"
+        android:id="@+id/button_nextPlayer"
         android:layout_width="match_parent"
         android:textStyle="bold"
         android:layout_height="80dp"

@@ -140,10 +140,16 @@ public class FlavorGenerator {
             "the things you want won't magically happen.",
             "hello. hello. is this thing on? hello.",
             "do you think you can tell?",
-            "omae wa mou shindeiru.",
+            "you are already dead.",
+            "no, seriously: what?",
             "marijuana is slightly psychedelic.",
             "probably don't have sex with your roommate!",
-            "psychedelics are crazy."
+            "psychedelics are crazy.",
+            "not just you: everyone has a hot cousin.",
+            "this game is on my resume.",
+            "this game is not for serious.",
+            "initiating self-destruct sequence now.",
+            "wow. just wow."
     };
 
     //this may eventually be used for permuting the set so duplicates don't happen
