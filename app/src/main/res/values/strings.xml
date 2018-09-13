@@ -6,9 +6,9 @@
     <string name="line2">answer something secretly</string>
     <string name="line3">read a secret out loud</string>
     <string name="line4">revel and repeat</string>
-    <string name="playerCount">number of players</string>
+    <string name="playerCount">how much entropy?</string>
     <string name="go">go</string>
-    <string name="playersJoinLeave">(players can join and leave freely)</string>
+    <string name="playersJoinLeave">players can join and leave freely</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="enterQuestion">type something for someone to respond to</string>
@@ -18,11 +18,12 @@
     <string name="answerAppears">answer appears here</string>
     <string name="submit">Submit</string>
     <string name="respondToAbove">respond to the above secretly</string>
-    <string name="sameTurnToggle">allow random same-turn self-answers?</string>
+    <string name="sameTurnToggle">sometimes ask yourself?</string>
     <string name="numberHint">##</string>
     <string name="defaultNumberPlayers">3</string>
-    <string name="suggestedNumberPlayers">suggested: 3</string>
-    <string name="minMaxNumberPlayers">minimum: 3 | maximum: 12</string>
+    <string name="suggestedNumberPlayers">suggestion: 3 or 4</string>
+    <string name="minMaxNumberPlayers">minimum: 3 maximum: 6</string>
+    <string name="entropyWarning">(higher is slower to start)</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

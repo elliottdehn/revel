@@ -4,7 +4,7 @@ public class FlavorGenerator {
 
     /*these appear randomly on the game screen as a fun little thing*/
     /*these are not meant to be professional and do not reflect professional behavior*/
-    private static String[] texts = {
+    private static final String[] texts = {
             "you exist. congratulations!",
             "truth is, we're all fucked up.",
             "if you hear voices, see a doctor.",
@@ -136,8 +136,14 @@ public class FlavorGenerator {
             "bad decisions will always catch up to you.",
             "the world is one big, very kinky orgy.",
             "what do you want from me?",
-            "should you stay or should you go?"
+            "should you stay or should you go?",
+            "better luck next time.",
+            "this game has no advertising budget!",
+            "the things you want won't magically happen."
     };
+
+    //this may eventually be used for permuting the set so duplicates don't happen
+    private static int count = 0;
 
     public static String grabFlavor(){
         return texts[Util.getRandomIntegerBetweenRange(0, texts.length)];

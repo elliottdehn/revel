@@ -17,7 +17,18 @@
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/entropyDescription"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="@string/entropyWarning"
+        android:gravity="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/numberPlayers"/>
 
     <TextView
         android:id="@+id/joinLeave"
@@ -28,9 +39,10 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/numberPlayers" />
+        app:layout_constraintBottom_toTopOf="@id/goButton"/>
 
     <TextView
+        android:id="@+id/countSuggestion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/suggestedNumberPlayers"
@@ -46,21 +58,27 @@
         android:text="@string/defaultNumberPlayers"
         android:textSize="80sp"
         android:gravity="center"
-        android:background="@color/colorAccent"
         android:inputType="number"
+        android:background="@color/colorAccent"
         android:maxLength="2"
         android:hint="@string/numberHint"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/joinLeave"
+        app:layout_constraintTop_toBottomOf="@id/numberPlayers"
         app:layout_constraintBottom_toTopOf="@id/sameTurnToggle"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/minMaxNumberPlayers"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/enterNumberPlayers" />
 
     <Switch
         android:id="@+id/sameTurnToggle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/sameTurnToggle"
-        android:background="@color/colorAccent"
         android:textColor="@color/colorPrimary"
         app:layout_constraintTop_toBottomOf="@id/enterNumberPlayers"
         app:layout_constraintBottom_toTopOf="@id/goButton"
