@@ -1,30 +1,25 @@
-package com.gregory.revelation;
+package com.gregory.revelation.fragments;
 
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Switch;
-import android.widget.ToggleButton;
 
-import java.util.ArrayList;
+import com.gregory.revelation.R;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link OnFragmentInteractionListener} interface
+ * {@link AnswerQuestionFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link PlayerCount#newInstance} factory method to
+ * Use the {@link AnswerQuestionFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class PlayerCount extends Fragment {
+public class AnswerQuestionFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -36,7 +31,7 @@ public class PlayerCount extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public PlayerCount() {
+    public AnswerQuestionFragment() {
         // Required empty public constructor
     }
 
@@ -46,11 +41,11 @@ public class PlayerCount extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment PlayerCount.
+     * @return A new instance of fragment AnswerQuestionFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static PlayerCount newInstance(String param1, String param2) {
-        PlayerCount fragment = new PlayerCount();
+    public static AnswerQuestionFragment newInstance(String param1, String param2) {
+        AnswerQuestionFragment fragment = new AnswerQuestionFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -71,41 +66,13 @@ public class PlayerCount extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_player_count, container, false);
+        return inflater.inflate(R.layout.fragment_answer_question_fragment, container, false);
     }
 
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        Button beginButton = view.findViewById(R.id.goButton);
-        beginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onButtonPressed(R.id.goButton);
-            }
-        });
-    }
-
-    public void onButtonPressed(int id) {
+    // TODO: Rename method, update argument and hook method into UI event
+    public void onButtonPressed(Uri uri) {
         if (mListener != null) {
-            View view = getView();
-            if(view != null){
-                EditText playerCount = getView().findViewById(R.id.enterNumberPlayers);
-                String playerCountString = playerCount.getText().toString();
-                Integer playerCountInt = Integer.parseInt(playerCountString);
-
-                Switch sameTurnSelfAnswerToggle = getView().findViewById(R.id.sameTurnToggle);
-                Boolean sameTurnObj = sameTurnSelfAnswerToggle.isChecked();
-
-                //this is an awful pattern. I need to fix this somehow.
-                //as long as I don't think of a better way, this is how it happens.
-                ArrayList<Object> gameFieldArgs = new ArrayList<>();
-                gameFieldArgs.add(playerCountInt);
-                gameFieldArgs.add(sameTurnObj);
-
-                mListener.onFragmentInteraction(id, gameFieldArgs);
-            } else {
-                //nothing. this should literally never happen.
-            }
+            mListener.onFragmentInteraction(uri);
         }
     }
 
@@ -124,5 +91,20 @@ public class PlayerCount extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    /**
+     * This interface must be implemented by activities that contain this
+     * fragment to allow an interaction in this fragment to be communicated
+     * to the activity and potentially other fragments contained in that
+     * activity.
+     * <p>
+     * See the Android Training lesson <a href=
+     * "http://developer.android.com/training/basics/fragments/communicating.html"
+     * >Communicating with Other Fragments</a> for more information.
+     */
+    public interface OnFragmentInteractionListener {
+        // TODO: Update argument type and name
+        void onFragmentInteraction(Uri uri);
     }
 }

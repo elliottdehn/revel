@@ -6,7 +6,7 @@
     <string name="line2">answer something secretly</string>
     <string name="line3">read a secret out loud</string>
     <string name="line4">revel and repeat</string>
-    <string name="playerCount">how much entropy?</string>
+    <string name="playerCount">how much entropy</string>
     <string name="go">go</string>
     <string name="playersJoinLeave">players can join and leave freely</string>
 
@@ -14,17 +14,34 @@
     <string name="enterQuestion">type something for someone to respond to</string>
     <string name="flavorTextDefault">once you get the message, hang up the phone</string>
     <string name="next_player">Next Player</string>
-    <string name="questionAppears">question appears here</string>
-    <string name="answerAppears">answer appears here</string>
     <string name="submit">Submit</string>
     <string name="respondToAbove">respond to the above secretly</string>
-    <string name="sameTurnToggle">sometimes ask yourself?</string>
+    <string name="sameTurnToggle">sometimes respond to yourself?</string>
     <string name="numberHint">##</string>
     <string name="defaultNumberPlayers">3</string>
     <string name="suggestedNumberPlayers">suggestion: 3 or 4</string>
     <string name="minMaxNumberPlayers">minimum: 3 maximum: 6</string>
     <string name="entropyWarning">(higher is slower to start)</string>
+    <string name="doneReading">done reading</string>
+    <string name="imReady">I\'m Ready</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- properly refactored strings -->
+    <string name="hint_editText_editThought">
+        enter a random thought here.\n
+        you are anonymous.\n
+        someone will respond to it.</string>
+    <string name="hint_editText_editResponse">
+        enter a response here.\n
+        you are anonymous.\n
+        someone will read it later.</string>
+
+    <string name="button_postQuestion">submit thought</string>
+    <string name="button_readPair">i\'m done reading it out</string>
+    <string name="button_postAnswer">submit response</string>
+
+    <string name="placeHolderText_thoughtAppears">question appears here</string>
+    <string name="placeHolderText_responseAppears">answer appears here</string>
+    <string name="placeHolderText_flavorText">once you get the message, hang up the phone</string>
+
+    <string name="button_playerIsReady">i am ready</string>
 </resources>

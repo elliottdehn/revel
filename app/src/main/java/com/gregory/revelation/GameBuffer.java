@@ -9,7 +9,7 @@ public class GameBuffer {
     private ArrayList<String> openQuestions;
     private ArrayList<Pair> closedQuestions;
     public enum State {
-        COLLECTING, NEED_ANSWER, FULL
+        COLLECTING_QUESTIONS, COLLECTING_ANSWERS, FULL
     }
     private State state;
     private int bufferSize;
@@ -25,7 +25,7 @@ public class GameBuffer {
 
         this.openQuestions = new ArrayList<>();
         this.closedQuestions = new ArrayList<>();
-        this.state = State.COLLECTING;
+        this.state = State.COLLECTING_QUESTIONS;
         this.sameTurnFlag = samePlayerCanAnswerSameTurn;
     }
 
@@ -43,7 +43,7 @@ public class GameBuffer {
         }
 
         if(openQuestions.size() >= this.bufferSize && this.state != State.FULL){
-            this.state = State.NEED_ANSWER;
+            this.state = State.COLLECTING_ANSWERS;
         }
     }
 
@@ -51,7 +51,6 @@ public class GameBuffer {
     public @Nullable Pair getQuestionAnswerPair(){
         if(closedQuestions.size() > 0){
             Pair pair = closedQuestions.remove(Util.getRandomIntegerBetweenRange(0, closedQuestions.size()));
-            this.state = State.NEED_ANSWER; //we have removed a question from the pool
             return pair;
         } else {
             return null;

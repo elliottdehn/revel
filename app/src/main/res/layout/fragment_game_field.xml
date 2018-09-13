@@ -3,91 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/textColorPrimary"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".GameField">
-    <EditText
-        android:id="@+id/editQuestion"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:visibility="invisible"
-        android:hint="@string/enterQuestion"
-        android:inputType="textAutoCorrect"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/nextButton" />
 
-    <TextView
-        android:id="@+id/questionShow"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark"
-        android:gravity="center"
-        android:visibility="invisible"
-        android:text="@string/questionAppears"
-        android:textColor="@color/colorAccent"
-        android:textSize="25sp" />
-
-    <TextView
-        android:id="@+id/answerShow"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="@color/colorAccent"
-        android:gravity="center"
-        android:scrollbars="vertical"
-        android:visibility="invisible"
-        android:text="@string/answerAppears"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@id/questionShow"
-        app:layout_constraintBottom_toTopOf="@id/nextButton"/>
-
-    <TextView
-        android:id="@+id/questionForPlayer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark"
-        android:gravity="center"
-        android:text="@string/questionAppears"
-        android:textColor="@color/colorAccent"
-        android:visibility="invisible"
-        android:textSize="25sp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/editAnswer" />
-
-    <EditText
-        android:id="@+id/editAnswer"
-        android:inputType="textAutoCorrect"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:visibility="invisible"
-        android:hint="@string/respondToAbove"
-        app:layout_constraintTop_toBottomOf="@id/questionForPlayer"
-        app:layout_constraintBottom_toTopOf="@id/flavorText" />
-
-    <TextView
-        android:id="@+id/flavorText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorAccent"
-        android:gravity="center"
-        android:visibility="invisible"
-        android:text="@string/flavorTextDefault"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@id/nextButton" />
-
-    <Button
-        android:id="@+id/nextButton"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:textSize="20sp"
-        android:background="@color/colorPrimaryDark"
-        android:text="@string/next_player"
-        android:textColor="@color/colorAccent"
-        app:layout_constraintVertical_chainStyle="spread_inside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_weight="0.2"/>
 
 
 </android.support.constraint.ConstraintLayout>

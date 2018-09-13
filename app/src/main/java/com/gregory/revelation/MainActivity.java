@@ -1,6 +1,5 @@
 package com.gregory.revelation;
 
-import android.net.Uri;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -9,9 +8,14 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.gregory.revelation.fragments.IntroFragment;
+import com.gregory.revelation.fragments.PlayerCountFragment;
+
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements OnFragmentInteractionListener {
+
+    private GameBuffer mGameBuffer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         setContentView(R.layout.activity_main);
 
         if(savedInstanceState == null) { //this is done so that rotations don't reset the fragment
-            Fragment fragment = new Intro();
+            Fragment fragment = new IntroFragment();
 
             FragmentManager fm = getSupportFragmentManager();
             FragmentTransaction transaction = fm.beginTransaction();
@@ -37,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
     //check for null in cases where it matters only.
     public void onFragmentInteraction(int id, @Nullable List<Object> args) {
         if(id == R.id.beginButton) {
-            Fragment fragment = new PlayerCount();
+            Fragment fragment = new PlayerCountFragment();
 
             FragmentManager fm = getSupportFragmentManager();
             FragmentTransaction transaction = fm.beginTransaction();

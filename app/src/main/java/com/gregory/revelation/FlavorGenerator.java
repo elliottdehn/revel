@@ -2,8 +2,9 @@ package com.gregory.revelation;
 
 public class FlavorGenerator {
 
-    /*these appear randomly on the game screen as a fun little thing*/
-    /*these are not meant to be professional and do not reflect professional behavior*/
+    //these appear randomly on the game screen as a fun little thing
+    //these are not meant to be professional and do not reflect professional behavior
+    //TODO: add a separate list for "inappropriate messages" in order to have a disable option
     private static final String[] texts = {
             "you exist. congratulations!",
             "truth is, we're all fucked up.",
@@ -26,9 +27,7 @@ public class FlavorGenerator {
             "the world is crazy, and getting crazier.",
             "there are no points in this game.",
             "holy shit, we landed on the moon!",
-            "marijuana is slightly psychedelic.",
             "once you get the message, hang up the phone.",
-            "probably don't have sex with your roommate!",
             "give someone near you a hug.",
             "there is no replacement for a reading habit.",
             "be creative! make things! you have ideas!",
@@ -48,7 +47,6 @@ public class FlavorGenerator {
             "find ethical inconsistencies in your life.",
             "think for yourself as much as possible.",
             "we are all stardust.",
-            "psychedelics are crazy.",
             "become an expert in something.",
             "you've changed... for the better.",
             "a pet is great for your mental health.",
@@ -139,7 +137,13 @@ public class FlavorGenerator {
             "should you stay or should you go?",
             "better luck next time.",
             "this game has no advertising budget!",
-            "the things you want won't magically happen."
+            "the things you want won't magically happen.",
+            "hello. hello. is this thing on? hello.",
+            "do you think you can tell?",
+            "omae wa mou shindeiru.",
+            "marijuana is slightly psychedelic.",
+            "probably don't have sex with your roommate!",
+            "psychedelics are crazy."
     };
 
     //this may eventually be used for permuting the set so duplicates don't happen
