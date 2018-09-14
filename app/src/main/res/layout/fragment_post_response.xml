@@ -24,9 +24,9 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:gravity="center"
-        android:textStyle="bold"
         android:background="@color/colorAccent"
-        android:textColor="@color/textColorPrimary"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
         android:hint="@string/hint_editText_editResponse"
         app:layout_constraintTop_toBottomOf="@id/textView_questionForPlayer"
         app:layout_constraintBottom_toTopOf="@id/button_nextPlayer" />
@@ -37,7 +37,7 @@
         android:textStyle="bold"
         android:layout_height="80dp"
         android:textSize="20sp"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorPrimaryDark"
         android:text="@string/button_postAnswer"
         android:textColor="@color/colorAccent"
         app:layout_constraintBottom_toBottomOf="parent" />

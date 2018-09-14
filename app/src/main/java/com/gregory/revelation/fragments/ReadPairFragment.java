@@ -14,6 +14,8 @@ import android.widget.TextView;
 import com.gregory.revelation.OnFragmentInteractionListener;
 import com.gregory.revelation.R;
 
+import org.w3c.dom.Text;
+
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
@@ -77,7 +79,7 @@ public class ReadPairFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         //set up visibility for first screen
 
         TextView thoughtView = view.findViewById(R.id.textView_questionToBeRead);
@@ -85,6 +87,22 @@ public class ReadPairFragment extends Fragment {
 
         thoughtView.setText(thought);
         answerView.setText(response);
+
+        TextView thoughtCover = view.findViewById(R.id.textView_thoughtCover);
+        thoughtCover.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                v.setVisibility(View.GONE);
+            }
+        });
+
+        TextView responseCover = view.findViewById(R.id.textView_responseCover);
+        responseCover.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                v.setVisibility(View.GONE);
+            }
+        });
 
         Button doneReadingButton = view.findViewById(R.id.button_doneReadingPair);
         doneReadingButton.setOnClickListener(new View.OnClickListener() {

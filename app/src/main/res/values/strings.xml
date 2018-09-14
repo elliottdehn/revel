@@ -2,10 +2,10 @@
     <string name="app_name">revel</string>
 
     <string name="welcome">in a circle:</string>
-    <string name="line1">ask something secretly</string>
-    <string name="line2">answer something secretly</string>
-    <string name="line3">read a secret out loud</string>
-    <string name="line4">revel and repeat</string>
+    <string name="line1">say things secretly</string>
+    <string name="line2">respond to things secretly</string>
+    <string name="line3">read your friend\'s secrets</string>
+    <string name="line4">repeat</string>
     <string name="playerCount">how much entropy</string>
     <string name="playersJoinLeave">players can join and leave freely</string>
 
@@ -39,7 +39,7 @@
     <string name="button_postAnswer">submit response</string>
     <string name="button_startGame">start game</string>
 
-    <string name="placeHolderText_thoughtAppears">question appears here</string>
+    <string name="placeHolderText_thoughtAppears">question appears</string>
     <string name="placeHolderText_responseAppears">answer appears here</string>
     <string name="placeHolderText_flavorText">once you get the message, hang up the phone</string>
 
@@ -48,4 +48,6 @@
     <string name="button_intro">understood</string>
 
     <string name="warning_thoughtTooShort">must use four letters or more.</string>
+    <string name="text_display_tapToRevealThought">tap to reveal someone\'s thought</string>
+    <string name="text_display_tapToRevealResponse">tap to reveal someone\'s response to that</string>
 </resources>
