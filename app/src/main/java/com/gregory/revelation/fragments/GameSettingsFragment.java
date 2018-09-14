@@ -77,11 +77,11 @@ public class GameSettingsFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        Button beginButton = view.findViewById(R.id.goButton);
+        Button beginButton = view.findViewById(R.id.button_startGame);
         beginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onButtonPressed(R.id.goButton);
+                onButtonPressed(R.id.button_startGame);
             }
         });
     }

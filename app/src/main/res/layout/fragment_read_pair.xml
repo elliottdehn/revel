@@ -42,4 +42,4 @@
         android:textColor="@color/colorAccent"
         app:layout_constraintBottom_toBottomOf="parent" />
 
-</>
+</android.support.constraint.ConstraintLayout>

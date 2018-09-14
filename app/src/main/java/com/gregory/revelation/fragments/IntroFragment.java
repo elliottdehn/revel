@@ -75,11 +75,11 @@ public class IntroFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        Button beginButton = view.findViewById(R.id.beginButton);
+        Button beginButton = view.findViewById(R.id.button_intro);
         beginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onButtonPressed(R.id.beginButton);
+                onButtonPressed(R.id.button_intro);
             }
         });
     }

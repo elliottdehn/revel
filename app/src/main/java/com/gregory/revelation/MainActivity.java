@@ -36,16 +36,11 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         }
     }
 
-    //this method is really ugly. I need to find a better structure for the application/way to do this.
-    //check for null in cases where it matters only.
+    //#TODO: find a way to make the state logic more easily understood/changed
     public void onFragmentInteraction(int id, List<Object> args) {
-
-        //decided to use a separate button in each fragment in order to ensure
-        //i did not need to use a state variable to keep track of what stage the game is on
-
         switch(id){
             case R.id.button_intro:
-                    setupFragmentGameSettings();
+                setupFragmentGameSettings();
                 break;
             case R.id.button_startGame:
                 Object firstArg = args.get(0);
@@ -58,52 +53,43 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
                 mGameBuffer = new GameBuffer(playerCount, sameTurnSelfAnswer);
 
                 setupFragmentPostThought();
-
                 break;
             case R.id.button_postThought:
 
                 mGameBuffer.addThought((String) args.get(0)); //never null, always present
 
-                if(mGameBuffer.pairPoolReady()) {
+                if(mGameBuffer.pairPoolReady()) { //are we ready to start reading out pairs?
                     setupFragmentReadPair();
                 } else {
-                    if(mGameBuffer.questionPoolReady()){
-                        //question pool has bufferSize questions excluding this player's?
-                        //answer questions
+                    if(mGameBuffer.questionPoolReady()){ //are we ready to answer questions?
                         setupFragmentPostResponse();
-                    } else{
-                        //next player screen
+                    } else{ //we are still collecting questions. go to next player
                         setupFragmentNextPlayer();
                     }
                 }
                 break;
             case R.id.button_doneReadingPair:
-                //if you're at the point where you are reading, you always answer a question after
-                setupFragmentPostResponse();
+                setupFragmentPostResponse(); //always answer a question after reading a pair out
                 break;
             case R.id.button_nextPlayer:
-                //nothing special to do here
-                setupFragmentNextPlayer();
+                //always comes from the answer submit screen, so add that pair
+                mGameBuffer.addAnswer((String) args.get(0), (String) args.get(1));
+                setupFragmentNextPlayer(); //go to art screen for next player
                 break;
             case R.id.button_nextPlayerIsReady:
-                //always answer a question after hitting ready
-                setupFragmentPostThought();
+                setupFragmentPostThought(); //go back to step one. hopefully, the state machine works.
                 break;
 
         }
     }
     private void setupFragmentIntro(){
-        Fragment fragment = new IntroFragment();
-
-        FragmentManager fm = getSupportFragmentManager();
-        FragmentTransaction transaction = fm.beginTransaction();
-        transaction.replace(R.id.contentFragment, fragment);
-        transaction.commit();
+        IntroFragment introFragment = new IntroFragment();
+        addFragment(introFragment);
     }
 
     private void setupFragmentGameSettings(){
-        Fragment fragment = new GameSettingsFragment();
-        addFragment(fragment);
+        GameSettingsFragment gameSettingsFragment = new GameSettingsFragment();
+        addFragment(gameSettingsFragment);
     }
 
     private void setupFragmentPostThought(){
