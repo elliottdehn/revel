@@ -32,30 +32,20 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         setContentView(R.layout.activity_main);
 
         if(savedInstanceState == null) { //this is done so that rotations don't reset the fragment
-            Fragment fragment = new IntroFragment();
-
-            FragmentManager fm = getSupportFragmentManager();
-            FragmentTransaction transaction = fm.beginTransaction();
-            transaction.replace(R.id.contentFragment, fragment);
-            transaction.commit();
+            setupFragmentIntro();
         }
     }
 
     //this method is really ugly. I need to find a better structure for the application/way to do this.
     //check for null in cases where it matters only.
-    public void onFragmentInteraction(int id, @Nullable List<Object> args) {
+    public void onFragmentInteraction(int id, List<Object> args) {
 
         //decided to use a separate button in each fragment in order to ensure
         //i did not need to use a state variable to keep track of what stage the game is on
-        FragmentManager fm = getSupportFragmentManager();
-        FragmentTransaction transaction = fm.beginTransaction();
 
         switch(id){
             case R.id.button_intro:
-                Fragment fragment = new GameSettingsFragment();
-
-                transaction.replace(R.id.contentFragment, fragment);
-                transaction.commit();
+                    setupFragmentGameSettings();
                 break;
             case R.id.button_startGame:
                 Object firstArg = args.get(0);
@@ -67,80 +57,83 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
 
                 mGameBuffer = new GameBuffer(playerCount, sameTurnSelfAnswer);
 
-                PostThoughtFragment postQuestion = PostThoughtFragment.newInstance();
-
-                fm = getSupportFragmentManager();
-                transaction = fm.beginTransaction();
-                transaction.replace(R.id.contentFragment, postQuestion);
-                transaction.commit();
+                setupFragmentPostThought();
 
                 break;
             case R.id.button_postThought:
-                mGameBuffer.addThought((String) args.get(0));
+
+                mGameBuffer.addThought((String) args.get(0)); //never null, always present
 
                 if(mGameBuffer.pairPoolReady()) {
-                    GameBuffer.Pair thoughtPair = mGameBuffer.removePair();
-                    ReadPairFragment readPairFragment = ReadPairFragment.newInstance(thoughtPair.getLeft(), thoughtPair.getRight());
-
-                    fm = getSupportFragmentManager();
-                    transaction = fm.beginTransaction();
-                    transaction.replace(R.id.contentFragment, readPairFragment);
-                    transaction.commit();
+                    setupFragmentReadPair();
                 } else {
                     if(mGameBuffer.questionPoolReady()){
                         //question pool has bufferSize questions excluding this player's?
                         //answer questions
-                        String openThought = mGameBuffer.removeOpenThought();
-                        PostResponseFragment postResponseFragment = PostResponseFragment.newInstance(openThought);
-
-                        fm = getSupportFragmentManager();
-                        transaction = fm.beginTransaction();
-                        transaction.replace(R.id.contentFragment, postResponseFragment);
-                        transaction.commit();
+                        setupFragmentPostResponse();
                     } else{
                         //next player screen
-                        String flavor = FlavorGenerator.grabFlavor();
-                        NextPlayerFragment nextPlayerFragment = NextPlayerFragment.newInstance(flavor);
-
-                        fm = getSupportFragmentManager();
-                        transaction = fm.beginTransaction();
-                        transaction.replace(R.id.contentFragment, nextPlayerFragment);
-                        transaction.commit();
+                        setupFragmentNextPlayer();
                     }
                 }
-
                 break;
             case R.id.button_doneReadingPair:
                 //if you're at the point where you are reading, you always answer a question after
-                String openThought = mGameBuffer.removeOpenThought();
-                PostResponseFragment postResponseFragment = PostResponseFragment.newInstance(openThought);
-
-                fm = getSupportFragmentManager();
-                transaction = fm.beginTransaction();
-                transaction.replace(R.id.contentFragment, postResponseFragment);
-                transaction.commit();
+                setupFragmentPostResponse();
                 break;
             case R.id.button_nextPlayer:
                 //nothing special to do here
-
-                String flavor = FlavorGenerator.grabFlavor();
-                NextPlayerFragment nextPlayerFragment = NextPlayerFragment.newInstance(flavor);
-
-                fm = getSupportFragmentManager();
-                transaction = fm.beginTransaction();
-                transaction.replace(R.id.contentFragment, nextPlayerFragment);
-                transaction.commit();
+                setupFragmentNextPlayer();
                 break;
             case R.id.button_nextPlayerIsReady:
                 //always answer a question after hitting ready
-                PostThoughtFragment postThoughtFragment = PostThoughtFragment.newInstance();
-
-                fm = getSupportFragmentManager();
-                transaction = fm.beginTransaction();
-                transaction.replace(R.id.contentFragment, postThoughtFragment);
-                transaction.commit();
+                setupFragmentPostThought();
                 break;
 
         }
+    }
+    private void setupFragmentIntro(){
+        Fragment fragment = new IntroFragment();
+
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.replace(R.id.contentFragment, fragment);
+        transaction.commit();
+    }
+
+    private void setupFragmentGameSettings(){
+        Fragment fragment = new GameSettingsFragment();
+        addFragment(fragment);
+    }
+
+    private void setupFragmentPostThought(){
+        PostThoughtFragment postQuestion = PostThoughtFragment.newInstance();
+        addFragment(postQuestion);
+    }
+
+    private void setupFragmentReadPair(){
+        GameBuffer.Pair thoughtPair = mGameBuffer.removePair();
+        ReadPairFragment readPairFragment = ReadPairFragment.newInstance(thoughtPair.getLeft(), thoughtPair.getRight());
+        addFragment(readPairFragment);
+    }
+
+    private void setupFragmentPostResponse(){
+        String openThought = mGameBuffer.removeOpenThought();
+        PostResponseFragment postResponseFragment = PostResponseFragment.newInstance(openThought);
+        addFragment(postResponseFragment);
+    }
+
+    private void setupFragmentNextPlayer(){
+        String flavor = FlavorGenerator.grabFlavor();
+        NextPlayerFragment nextPlayerFragment = NextPlayerFragment.newInstance(flavor);
+        addFragment(nextPlayerFragment);
+    }
+
+    //#TODO manage backstack
+    private void addFragment(Fragment fragment){
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction transaction= fm.beginTransaction();
+        transaction.replace(R.id.contentFragment, fragment);
+        transaction.commit();
     }
 }
