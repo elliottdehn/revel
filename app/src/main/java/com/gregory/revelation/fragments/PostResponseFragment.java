@@ -1,7 +1,6 @@
 package com.gregory.revelation.fragments;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -67,7 +66,7 @@ public class PostResponseFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_answer_question_fragment, container, false);
+        return inflater.inflate(R.layout.fragment_post_response, container, false);
     }
 
     @Override

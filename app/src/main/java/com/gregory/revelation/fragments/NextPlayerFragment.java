@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.gregory.revelation.OnFragmentInteractionListener;
 import com.gregory.revelation.R;
@@ -24,12 +25,10 @@ import com.gregory.revelation.R;
 public class NextPlayerFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private static final String ARG_PARAM1 = "flavor";
 
     // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private String flavor;
 
     private OnFragmentInteractionListener mListener;
 
@@ -57,8 +56,7 @@ public class NextPlayerFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            flavor = getArguments().getString(ARG_PARAM1);
         }
     }
 
@@ -72,7 +70,8 @@ public class NextPlayerFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         //set up visibility for first screen
-
+        TextView flavorView = view.findViewById(R.id.textView_flavorText);
+        flavorView.setText(flavor);
         Button postThoughtButton = view.findViewById(R.id.button_nextPlayerIsReady);
         postThoughtButton.setOnClickListener(new View.OnClickListener() {
             @Override

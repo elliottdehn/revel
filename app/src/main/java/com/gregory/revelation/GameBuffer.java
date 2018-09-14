@@ -10,7 +10,6 @@ public class GameBuffer {
     private ArrayList<Pair> closedQuestions;
 
     private int bufferSize;
-    private boolean sameTurnFlag;
     private String holdQuestion;
 
     GameBuffer(int bufferSize, boolean samePlayerCanAnswerSameTurn){
@@ -22,7 +21,7 @@ public class GameBuffer {
 
         this.openQuestions = new ArrayList<>();
         this.closedQuestions = new ArrayList<>();
-        this.sameTurnFlag = samePlayerCanAnswerSameTurn;
+        this.holdQuestion = null;
     }
 
     public String removeOpenThought(){
@@ -30,14 +29,13 @@ public class GameBuffer {
     }
 
     public void addThought(String question){
-
-        if(sameTurnFlag) {
-            openQuestions.add(question);
-        } else {
+        if(holdQuestion != null) {
             openQuestions.add(holdQuestion); //from previous turn
             holdQuestion = question; //from this turn
+            //otherwise players might respond t their own thought in the same turn
+        } else {
+            holdQuestion = question;
         }
-
     }
 
     //will return null if in State.NEED_ANSWER
