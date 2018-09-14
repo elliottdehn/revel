@@ -83,7 +83,7 @@ public class PostResponseFragment extends Fragment {
             }
         });
     }
-    
+
     public void onButtonPressed(int id) {
         if (mListener != null) {
             if(id == R.id.button_nextPlayer){

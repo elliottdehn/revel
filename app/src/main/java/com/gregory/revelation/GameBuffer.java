@@ -26,7 +26,7 @@ public class GameBuffer {
     }
 
     public String removeOpenThought(){
-        return openQuestions.remove(Util.getRandomIntegerBetweenRange(0, openQuestions.size()));
+        return openQuestions.remove(Util.getRandomIntegerBetweenRange(0, openQuestions.size()-1));
     }
 
     public void addThought(String question){
@@ -43,7 +43,7 @@ public class GameBuffer {
     //will return null if in State.NEED_ANSWER
     public @Nullable Pair removePair(){
         if(closedQuestions.size() > 0){
-            Pair pair = closedQuestions.remove(Util.getRandomIntegerBetweenRange(0, closedQuestions.size()));
+            Pair pair = closedQuestions.remove(Util.getRandomIntegerBetweenRange(0, closedQuestions.size()-1));
             return pair;
         } else {
             return null;
@@ -55,7 +55,7 @@ public class GameBuffer {
     }
 
     public boolean questionPoolReady(){
-        return this.openQuestions.size()>- this.bufferSize;
+        return this.openQuestions.size() >= this.bufferSize;
     }
 
     public void addAnswer(String question, String answer){
