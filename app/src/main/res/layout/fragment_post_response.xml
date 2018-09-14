@@ -29,7 +29,7 @@
         android:textColor="@color/textColorPrimary"
         android:hint="@string/hint_editText_editResponse"
         app:layout_constraintTop_toBottomOf="@id/textView_questionForPlayer"
-        app:layout_constraintBottom_toTopOf="@id/button_doneReadingPair" />
+        app:layout_constraintBottom_toTopOf="@id/button_nextPlayer" />
 
     <Button
         android:id="@+id/button_nextPlayer"

@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.gregory.revelation.OnFragmentInteractionListener;
@@ -90,7 +91,8 @@ public class PostResponseFragment extends Fragment {
                 if(view != null){
 
                     ArrayList<Object> args = new ArrayList<>();
-                    String response = view.findViewById(R.id.editText_editResponse).toString();
+                    EditText responseEdit = view.findViewById(R.id.editText_editResponse);
+                    String response = responseEdit.getText().toString();
                     args.add(thought);
                     args.add(response);
 
