@@ -8,10 +8,7 @@ public class GameBuffer {
 
     private ArrayList<String> openQuestions;
     private ArrayList<Pair> closedQuestions;
-    public enum State {
-        COLLECTING_QUESTIONS, COLLECTING_ANSWERS, FULL
-    }
-    private State state;
+
     private int bufferSize;
     private boolean sameTurnFlag;
     private String holdQuestion;
@@ -25,11 +22,10 @@ public class GameBuffer {
 
         this.openQuestions = new ArrayList<>();
         this.closedQuestions = new ArrayList<>();
-        this.state = State.COLLECTING_QUESTIONS;
         this.sameTurnFlag = samePlayerCanAnswerSameTurn;
     }
 
-    public String removeOpenQuestion(){
+    public String removeOpenThought(){
         return openQuestions.remove(Util.getRandomIntegerBetweenRange(0, openQuestions.size()));
     }
 
@@ -42,9 +38,6 @@ public class GameBuffer {
             holdQuestion = question; //from this turn
         }
 
-        if(openQuestions.size() >= this.bufferSize && this.state != State.FULL){
-            this.state = State.COLLECTING_ANSWERS;
-        }
     }
 
     //will return null if in State.NEED_ANSWER
@@ -57,16 +50,17 @@ public class GameBuffer {
         }
     }
 
+    public boolean pairPoolReady(){
+        return this.closedQuestions.size() >= this.bufferSize;
+    }
+
+    public boolean questionPoolReady(){
+        return this.openQuestions.size()>- this.bufferSize;
+    }
+
     public void addAnswer(String question, String answer){
         Pair pair = new Pair(question, answer);
         closedQuestions.add(pair);
-        if(closedQuestions.size() >= this.bufferSize) {
-            this.state = State.FULL;
-        }
-    }
-
-    public State getState(){
-        return this.state;
     }
 
     public static class Pair {

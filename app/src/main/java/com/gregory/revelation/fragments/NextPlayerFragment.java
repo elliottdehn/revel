@@ -39,15 +39,13 @@ public class NextPlayerFragment extends Fragment {
      * this fragment using the provided parameters.
      *
      * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
      * @return A new instance of fragment NextPlayerFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static NextPlayerFragment newInstance(String param1, String param2) {
+    public static NextPlayerFragment newInstance(String param1) {
         NextPlayerFragment fragment = new NextPlayerFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }

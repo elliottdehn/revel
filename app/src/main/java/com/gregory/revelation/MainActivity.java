@@ -10,6 +10,8 @@ import android.os.Bundle;
 
 import com.gregory.revelation.fragments.GameSettingsFragment;
 import com.gregory.revelation.fragments.IntroFragment;
+import com.gregory.revelation.fragments.NextPlayerFragment;
+import com.gregory.revelation.fragments.PostResponseFragment;
 import com.gregory.revelation.fragments.PostThoughtFragment;
 import com.gregory.revelation.fragments.ReadPairFragment;
 
@@ -76,21 +78,67 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
             case R.id.button_postThought:
                 mGameBuffer.addThought((String) args.get(0));
 
-                //if game is ready for this
-                GameBuffer.Pair thoughtPair = mGameBuffer.removePair();
-                ReadPairFragment readPairFragment = ReadPairFragment.newInstance(thoughtPair.getLeft(), thoughtPair.getRight());
+                if(mGameBuffer.pairPoolReady()) {
+                    GameBuffer.Pair thoughtPair = mGameBuffer.removePair();
+                    ReadPairFragment readPairFragment = ReadPairFragment.newInstance(thoughtPair.getLeft(), thoughtPair.getRight());
 
-                fm = getSupportFragmentManager();
-                transaction = fm.beginTransaction();
-                transaction.replace(R.id.contentFragment, readPairFragment);
-                transaction.commit();
+                    fm = getSupportFragmentManager();
+                    transaction = fm.beginTransaction();
+                    transaction.replace(R.id.contentFragment, readPairFragment);
+                    transaction.commit();
+                } else {
+                    if(mGameBuffer.questionPoolReady()){
+                        //question pool has bufferSize questions excluding this player's?
+                        //answer questions
+                        String openThought = mGameBuffer.removeOpenThought();
+                        PostResponseFragment postResponseFragment = PostResponseFragment.newInstance(openThought);
+
+                        fm = getSupportFragmentManager();
+                        transaction = fm.beginTransaction();
+                        transaction.replace(R.id.contentFragment, postResponseFragment);
+                        transaction.commit();
+                    } else{
+                        //next player screen
+                        String flavor = FlavorGenerator.grabFlavor();
+                        NextPlayerFragment nextPlayerFragment = NextPlayerFragment.newInstance(flavor);
+
+                        fm = getSupportFragmentManager();
+                        transaction = fm.beginTransaction();
+                        transaction.replace(R.id.contentFragment, nextPlayerFragment);
+                        transaction.commit();
+                    }
+                }
 
                 break;
             case R.id.button_doneReadingPair:
+                //if you're at the point where you are reading, you always answer a question after
+                String openThought = mGameBuffer.removeOpenThought();
+                PostResponseFragment postResponseFragment = PostResponseFragment.newInstance(openThought);
+
+                fm = getSupportFragmentManager();
+                transaction = fm.beginTransaction();
+                transaction.replace(R.id.contentFragment, postResponseFragment);
+                transaction.commit();
                 break;
             case R.id.button_nextPlayer:
+                //nothing special to do here
+
+                String flavor = FlavorGenerator.grabFlavor();
+                NextPlayerFragment nextPlayerFragment = NextPlayerFragment.newInstance(flavor);
+
+                fm = getSupportFragmentManager();
+                transaction = fm.beginTransaction();
+                transaction.replace(R.id.contentFragment, nextPlayerFragment);
+                transaction.commit();
                 break;
             case R.id.button_nextPlayerIsReady:
+                //always answer a question after hitting ready
+                PostThoughtFragment postThoughtFragment = PostThoughtFragment.newInstance();
+
+                fm = getSupportFragmentManager();
+                transaction = fm.beginTransaction();
+                transaction.replace(R.id.contentFragment, postThoughtFragment);
+                transaction.commit();
                 break;
 
         }

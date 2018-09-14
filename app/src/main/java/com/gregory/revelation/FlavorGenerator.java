@@ -149,7 +149,13 @@ public class FlavorGenerator {
             "this game is on my resume.",
             "this game is not for serious.",
             "initiating self-destruct sequence now.",
-            "wow. just wow."
+            "wow. just wow.",
+            "butt stuff is a terrible surprise.",
+            "transmission received",
+            "when was the last time you felt real fear?",
+            "i have become so uncomfortably numb.",
+            "when was the last time you cried?",
+            "if it ain't a sexy booty, i don't want it."
     };
 
     //this may eventually be used for permuting the set so duplicates don't happen
