@@ -61,12 +61,15 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
 
     private void handleStartGame(List<Object> args){
         Object firstArg = args.get(0);
-        Object secondArg = args.get(1);
 
         //should always be allowed, this is on me
         int playerCount = (int) firstArg;
 
         mGameBuffer = new GameBuffer(playerCount);
+        for(int i = 0; i < playerCount; i++){
+            mGameBuffer.addThought(FlavorGenerator.grabQuestion(), true);
+            //use our supplied questions until the buffer of questions supplied by players is full enough
+        }
 
         setupFragmentPostThought();
     }

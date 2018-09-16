@@ -94,14 +94,10 @@ public class GameSettingsFragment extends Fragment {
                 String playerCountString = playerCount.getText().toString();
                 Integer playerCountInt = Integer.parseInt(playerCountString);
 
-                Switch sameTurnSelfAnswerToggle = getView().findViewById(R.id.sameTurnToggle);
-                Boolean sameTurnObj = sameTurnSelfAnswerToggle.isChecked();
-
                 //this is an awful pattern. I need to fix this somehow.
                 //as long as I don't think of a better way, this is how it happens.
                 ArrayList<Object> gameFieldArgs = new ArrayList<>();
                 gameFieldArgs.add(playerCountInt);
-                gameFieldArgs.add(sameTurnObj);
 
                 mListener.onFragmentInteraction(id, gameFieldArgs);
             } else {

@@ -65,25 +65,15 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/numberPlayers"
-        app:layout_constraintBottom_toTopOf="@id/sameTurnToggle"/>
+        app:layout_constraintBottom_toTopOf="@id/button_startGame"/>
 
     <TextView
+        android:id="@+id/textView_minMaxReccomendation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/minMaxNumberPlayers"
         android:gravity="center"
         app:layout_constraintTop_toBottomOf="@id/enterNumberPlayers" />
-
-    <Switch
-        android:id="@+id/sameTurnToggle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/sameTurnToggle"
-        android:textColor="@color/colorPrimary"
-        app:layout_constraintTop_toBottomOf="@id/enterNumberPlayers"
-        app:layout_constraintBottom_toTopOf="@id/button_startGame"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
 
     <Button
         android:id="@+id/button_startGame"

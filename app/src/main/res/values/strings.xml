@@ -2,9 +2,9 @@
     <string name="app_name">revel</string>
 
     <string name="welcome">in a circle:</string>
-    <string name="line1">say things secretly</string>
-    <string name="line2">respond to things secretly</string>
-    <string name="line3">read your friend\'s secrets</string>
+    <string name="line1">ask a question anonymously</string>
+    <string name="line2">answer a question publicly</string>
+    <string name="line3">have fun</string>
     <string name="line4">repeat</string>
     <string name="playerCount">how much entropy</string>
     <string name="playersJoinLeave">players can join and leave freely</string>
@@ -26,9 +26,9 @@
 
     <!-- properly refactored strings -->
     <string name="hint_editText_editThought">
-        enter a random thought here.\n
+        enter a question for someone.\n
         you are anonymous.\n
-        someone will respond to it.</string>
+        someone random will respond to it.</string>
     <string name="hint_editText_editResponse">
         enter a response here.\n
         you are anonymous.\n

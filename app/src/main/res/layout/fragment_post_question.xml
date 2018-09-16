@@ -13,8 +13,8 @@
         android:gravity="center"
         android:hint="@string/hint_editText_editThought"
         android:inputType="textAutoCorrect"
+        android:textCursorDrawable="@null"
         android:textColor="@color/colorPrimary"
-        android:background="@color/colorAccent"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/button_postThought" />
