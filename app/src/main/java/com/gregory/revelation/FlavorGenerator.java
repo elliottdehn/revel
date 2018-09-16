@@ -247,7 +247,7 @@ public class FlavorGenerator {
             "something you eat that other people would find gross?",
             "have you ever broken the law and didn't get caught, if so how?",
             "something you fear might change you.",
-            "what personality trait in people raises a red flah with you?",
+            "what personality traits raise red flags?",
             "have you ever resented someone, if so what for?",
             "do you have a favorite t-shirt? what is it?",
             "how old do you think is too old to have a baby?",
@@ -288,7 +288,16 @@ public class FlavorGenerator {
             "who is the very first friend you ever remember making and how old were you?",
             "what makes you lose sleep?",
             "what are 3 phrases or saying you say almost every day?",
-            "do you floss or use a toothpick when food gets stuck in your teeth?"
+            "have you ever felt genuinely uncomfortable?",
+            "what is the most dangerous thing you've ever done?",
+            "what do you personally consider to be an artistic masterpiece?",
+            "when was the last time you had your mind blown? why?",
+            "what has gotten worse over time? what has gotten better?",
+            "what has made you pause and think 'i am definitely getting older.'?",
+            "are you easily impressed?",
+            "what is the best money you've ever spent?",
+            "what is the worst money you've ever spent?",
+            "has a celebrity death ever affected you emotionally?"
     };
 
     public static String grabFlavor(){

@@ -5,14 +5,17 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.gregory.revelation.GameBuffer;
+import com.gregory.revelation.MainActivity;
 import com.gregory.revelation.OnFragmentInteractionListener;
 import com.gregory.revelation.R;
 
@@ -63,6 +66,10 @@ public class PostThoughtFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         //set up visibility for first screen
+
+        EditText questionBox = view.findViewById(R.id.editText_editThought);
+        questionBox.setImeOptions(EditorInfo.IME_ACTION_DONE);
+        questionBox.setRawInputType(InputType.TYPE_CLASS_TEXT);
 
         Button postThoughtButton = view.findViewById(R.id.button_postThought);
         postThoughtButton.setOnClickListener(new View.OnClickListener() {

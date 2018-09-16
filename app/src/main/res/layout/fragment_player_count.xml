@@ -7,7 +7,7 @@
     tools:context=".fragments.GameSettingsFragment">
 
     <TextView
-        android:id="@+id/numberPlayers"
+        android:id="@+id/textView_numberPlayers"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:text="@string/playerCount"
@@ -20,18 +20,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
-        android:id="@+id/entropyDescription"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:text="@string/entropyWarning"
-        android:gravity="center"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/numberPlayers"/>
-
-    <TextView
-        android:id="@+id/joinLeave"
+        android:id="@+id/textView_joinLeave"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/playersJoinLeave"
@@ -39,7 +28,7 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/button_startGame"/>
+        app:layout_constraintTop_toBottomOf="@id/textView_numberPlayers"/>
 
     <TextView
         android:id="@+id/countSuggestion"
@@ -64,11 +53,11 @@
         android:hint="@string/numberHint"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/numberPlayers"
+        app:layout_constraintTop_toBottomOf="@id/textView_joinLeave"
         app:layout_constraintBottom_toTopOf="@id/button_startGame"/>
 
     <TextView
-        android:id="@+id/textView_minMaxReccomendation"
+        android:id="@+id/textView_minMaxRecommendation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/minMaxNumberPlayers"

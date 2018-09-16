@@ -6,7 +6,7 @@
     <string name="line2">answer a question publicly</string>
     <string name="line3">have fun</string>
     <string name="line4">repeat</string>
-    <string name="playerCount">how much entropy</string>
+    <string name="playerCount">how many players?</string>
     <string name="playersJoinLeave">players can join and leave freely</string>
 
     <!-- TODO: Remove or change this placeholder text -->
@@ -18,15 +18,15 @@
     <string name="sameTurnToggle">Jake\'s Idea Mode</string>
     <string name="numberHint">##</string>
     <string name="defaultNumberPlayers">3</string>
-    <string name="suggestedNumberPlayers">suggestion: 3 or 4</string>
-    <string name="minMaxNumberPlayers">minimum: 3 maximum: 6</string>
-    <string name="entropyWarning">(higher is slower to start)</string>
+    <string name="suggestedNumberPlayers">minimum: 3</string>
+    <string name="minMaxNumberPlayers">more is usually better</string>
     <string name="doneReading">done reading</string>
     <string name="imReady">I\'m Ready</string>
 
     <!-- properly refactored strings -->
     <string name="hint_editText_editThought">
-        enter a question for someone.\n
+        now enter a question for someone else.\n
+        this is usually done secretly.\n
         you are anonymous.\n
         someone random will respond to it.</string>
     <string name="hint_editText_editResponse">
@@ -48,8 +48,8 @@
     <string name="button_intro">understood</string>
 
     <string name="warning_thoughtTooShort">must use four letters or more.</string>
-    <string name="text_display_tapToRevealThought">tap to reveal someone\'s thought</string>
-    <string name="text_display_tapToRevealResponse">tap to reveal someone\'s response to that</string>
+    <string name="text_display_tapToRevealThought">tap to reveal the question</string>
     <string name="button_doneResponding">done answering</string>
-    <string name="textView_promptToRespond">an anonymous peer asks you:</string>
+    <string name="textView_promptToRespond">answer out loud:</string>
+    <string name="button_waiting">waiting...</string>
 </resources>

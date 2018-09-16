@@ -8,10 +8,10 @@
         android:id="@+id/textView_promptToRespond"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorAccent"
+        android:background="@color/colorPrimaryDark"
         android:gravity="center"
         android:text="@string/textView_promptToRespond"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorAccent"
         android:textSize="25sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/textView_questionForPlayer" />
@@ -25,6 +25,13 @@
         android:text="@string/placeHolderText_thoughtAppears"
         android:textColor="@color/colorAccent"
         android:textSize="25sp"
+
+        android:shadowColor="#000000"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:shadowRadius="1.6"
+        android:textAllCaps="true"
+
         app:layout_constraintTop_toBottomOf="@id/textView_promptToRespond"
         app:layout_constraintBottom_toTopOf="@id/button_doneResponding" />
 
@@ -34,7 +41,7 @@
         android:textStyle="bold"
         android:layout_height="80dp"
         android:textSize="20sp"
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/textColorTertiary"
         android:text="@string/button_doneResponding"
         android:textColor="@color/colorAccent"
         app:layout_constraintBottom_toBottomOf="parent" />
