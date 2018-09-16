@@ -26,11 +26,9 @@ import java.util.ArrayList;
  * create an instance of this fragment.
  */
 public class PostResponseFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "thoughtParam";
 
-    // TODO: Rename and change types of parameters
     private String thought;
 
     private OnFragmentInteractionListener mListener;
@@ -46,7 +44,6 @@ public class PostResponseFragment extends Fragment {
      * @param thought the thought to respond to
      * @return A new instance of fragment PostResponseFragment.
      */
-    // TODO: Rename and change types and number of parameters
     public static PostResponseFragment newInstance(String thought) {
         PostResponseFragment fragment = new PostResponseFragment();
         Bundle args = new Bundle();
@@ -66,8 +63,7 @@ public class PostResponseFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_post_response, container, false);
+        return inflater.inflate(R.layout.fragment_respond_to_question, container, false);
     }
 
     @Override
@@ -75,30 +71,18 @@ public class PostResponseFragment extends Fragment {
         TextView thoughtToRespondTo = view.findViewById(R.id.textView_questionForPlayer);
         thoughtToRespondTo.setText(thought);
 
-        Button postResponse = view.findViewById(R.id.button_nextPlayer);
+        Button postResponse = view.findViewById(R.id.button_doneResponding);
         postResponse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onButtonPressed(R.id.button_nextPlayer);
+                onButtonPressed(R.id.button_doneResponding);
             }
         });
     }
 
     public void onButtonPressed(int id) {
         if (mListener != null) {
-            if(id == R.id.button_nextPlayer){
-                View view = getView();
-                if(view != null){
-
-                    ArrayList<Object> args = new ArrayList<>();
-                    EditText responseEdit = view.findViewById(R.id.editText_editResponse);
-                    String response = responseEdit.getText().toString();
-                    args.add(thought);
-                    args.add(response);
-
-                    mListener.onFragmentInteraction(id, args);
-                }
-            }
+            mListener.onFragmentInteraction(id, null);
         }
     }
 

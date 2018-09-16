@@ -1,6 +1,5 @@
 package com.gregory.revelation;
 
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -13,7 +12,6 @@ import com.gregory.revelation.fragments.IntroFragment;
 import com.gregory.revelation.fragments.NextPlayerFragment;
 import com.gregory.revelation.fragments.PostResponseFragment;
 import com.gregory.revelation.fragments.PostThoughtFragment;
-import com.gregory.revelation.fragments.ReadPairFragment;
 
 import java.util.List;
 
@@ -47,11 +45,8 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
             case R.id.button_postThought:
                 handlePostThought(args);
                 break;
-            case R.id.button_doneReadingPair:
-                handleDoneReadingPair(args);
-                break;
-            case R.id.button_nextPlayer:
-                handleNextPlayer(args);
+            case R.id.button_doneResponding:
+                handleDoneResponding(args);
                 break;
             case R.id.button_nextPlayerIsReady:
                 handleNextPlayerIsReady(args);
@@ -70,38 +65,26 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
 
         //should always be allowed, this is on me
         int playerCount = (int) firstArg;
-        boolean sameTurnSelfAnswer = (boolean) secondArg;
 
-        mGameBuffer = new GameBuffer(playerCount, sameTurnSelfAnswer);
+        mGameBuffer = new GameBuffer(playerCount);
 
         setupFragmentPostThought();
     }
 
     private void handlePostThought(List<Object> args){
         mGameBuffer.addThought((String) args.get(0)); //never null, always present
-
-        if(mGameBuffer.pairPoolReady()) { //are we ready to start reading out pairs?
-            setupFragmentReadPair();
-        } else {
-            if(mGameBuffer.questionPoolReady()){ //are we ready to answer questions?
-                setupFragmentPostResponse();
-            } else{ //we are still collecting questions. go to next player
-                setupFragmentNextPlayer();
-            }
-        }
+        setupFragmentNextPlayer();
     }
 
-    private void handleDoneReadingPair(List<Object> args){
-        setupFragmentPostResponse(); //always answer a question after reading a pair out
-    }
-
-    private void handleNextPlayer(List<Object> args){
-        //always comes from the answer submit screen, so add that pair
-        mGameBuffer.addAnswer((String) args.get(0), (String) args.get(1));
-        setupFragmentNextPlayer(); //go to art screen for next player
+    private void handleDoneResponding(List<Object> args){
+        setupFragmentPostThought(); //go to art screen for next player
     }
     private void handleNextPlayerIsReady(List<Object> args){
-        setupFragmentPostThought(); //go back to step one. hopefully, the state machine works.
+        if(mGameBuffer.questionPoolReady()){
+            setupFragmentPostResponse();
+        } else {
+            setupFragmentPostThought();
+        }
     }
 
     private void setupFragmentIntro(){
@@ -117,12 +100,6 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
     private void setupFragmentPostThought(){
         PostThoughtFragment postQuestion = PostThoughtFragment.newInstance();
         addFragment(postQuestion);
-    }
-
-    private void setupFragmentReadPair(){
-        GameBuffer.Pair thoughtPair = mGameBuffer.removePair();
-        ReadPairFragment readPairFragment = ReadPairFragment.newInstance(thoughtPair.getLeft(), thoughtPair.getRight());
-        addFragment(readPairFragment);
     }
 
     private void setupFragmentPostResponse(){

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/textView_promptToRespond"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:text="@string/textView_promptToRespond"
+        android:textColor="@color/colorPrimary"
+        android:textSize="25sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/textView_questionForPlayer" />
+
+    <TextView
+        android:id="@+id/textView_questionForPlayer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="@string/placeHolderText_thoughtAppears"
+        android:textColor="@color/colorAccent"
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@id/textView_promptToRespond"
+        app:layout_constraintBottom_toTopOf="@id/button_doneResponding" />
+
+    <Button
+        android:id="@+id/button_doneResponding"
+        android:layout_width="match_parent"
+        android:textStyle="bold"
+        android:layout_height="80dp"
+        android:textSize="20sp"
+        android:background="@color/colorPrimaryDark"
+        android:text="@string/button_doneResponding"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
