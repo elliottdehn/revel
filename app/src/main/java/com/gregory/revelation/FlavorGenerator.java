@@ -241,7 +241,7 @@ public class FlavorGenerator {
             "have you ever eaten a whole tube of pringles by yourself?",
             "do you like champagne? if so: favorite brand?",
             "what nervous habits do you have?",
-            "what do you do when tou and your best friend get into a fight?",
+            "what do you do when you and your best friend get into a fight?",
             "what comforts you on bad days?",
             "do you treat yourself and your body with respect?",
             "something you eat that other people would find gross?",

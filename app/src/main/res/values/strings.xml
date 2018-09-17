@@ -25,16 +25,16 @@
 
     <!-- properly refactored strings -->
     <string name="hint_editText_editThought">
-        now enter a question for someone else.\n
+        now you type a question.\n
         this is usually done secretly.\n
         you are anonymous.\n
-        someone random will respond to it.</string>
+        someone else will answer.</string>
     <string name="hint_editText_editResponse">
         enter a response here.\n
         you are anonymous.\n
         someone will read it later.</string>
 
-    <string name="button_postQuestion">next player</string>
+    <string name="button_postQuestion">end my turn</string>
     <string name="button_readPair">i\'m done reading it out</string>
     <string name="button_postAnswer">submit response</string>
     <string name="button_startGame">start game</string>
@@ -43,7 +43,7 @@
     <string name="placeHolderText_responseAppears">answer appears here</string>
     <string name="placeHolderText_flavorText">once you get the message, hang up the phone</string>
 
-    <string name="button_playerIsReady">i am ready</string>
+    <string name="button_playerIsReady">start my turn</string>
 
     <string name="button_intro">understood</string>
 
@@ -51,5 +51,8 @@
     <string name="text_display_tapToRevealThought">tap to reveal the question</string>
     <string name="button_doneResponding">done answering</string>
     <string name="textView_promptToRespond">answer out loud:</string>
-    <string name="button_waiting">waiting...</string>
+    <string name="button_waiting">waiting</string>
+    <string name="textView_promptToAsk">secretly ask something:</string>
+    <string name="textView_promptToPass">pass me to the next player</string>
+
 </resources>

@@ -2,14 +2,17 @@ package com.gregory.revelation.fragments;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.InputType;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -20,6 +23,7 @@ import com.gregory.revelation.OnFragmentInteractionListener;
 import com.gregory.revelation.R;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -33,6 +37,8 @@ public class PostThoughtFragment extends Fragment {
 
 
     private OnFragmentInteractionListener mListener;
+    private static final String ARG_PARAM1 = "color";
+    private int color;
 
     public PostThoughtFragment() {
         // Required empty public constructor
@@ -44,9 +50,10 @@ public class PostThoughtFragment extends Fragment {
      *
      * @return A new instance of fragment PostThoughtFragment.
      */
-    public static PostThoughtFragment newInstance() {
+    public static PostThoughtFragment newInstance(int color) {
         PostThoughtFragment fragment = new PostThoughtFragment();
         Bundle args = new Bundle();
+        args.putInt(ARG_PARAM1, color);
         fragment.setArguments(args);
         return fragment;
     }
@@ -54,6 +61,9 @@ public class PostThoughtFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+             color = getArguments().getInt(ARG_PARAM1);
+        }
     }
 
     @Override
@@ -65,11 +75,17 @@ public class PostThoughtFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        //set up visibility for first screen
+
+        view.findViewById(R.id.postQuestionLayout).setBackgroundColor(color);
 
         EditText questionBox = view.findViewById(R.id.editText_editThought);
+
         questionBox.setImeOptions(EditorInfo.IME_ACTION_DONE);
         questionBox.setRawInputType(InputType.TYPE_CLASS_TEXT);
+        questionBox.requestFocus();
+
+        InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.showSoftInput(questionBox, InputMethodManager.SHOW_IMPLICIT);
 
         Button postThoughtButton = view.findViewById(R.id.button_postThought);
         postThoughtButton.setOnClickListener(new View.OnClickListener() {

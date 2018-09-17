@@ -1,6 +1,7 @@
 package com.gregory.revelation;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -17,6 +18,7 @@ import com.gregory.revelation.fragments.PostResponseFragment;
 import com.gregory.revelation.fragments.PostThoughtFragment;
 
 import java.util.List;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements OnFragmentInteractionListener {
 
@@ -74,7 +76,9 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
             //use our supplied questions until the buffer of questions supplied by players is full enough
         }
 
-        setupFragmentPostThought();
+        Random rnd = new Random();
+        int generatedColor = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
+        setupFragmentPostThought(generatedColor);
     }
 
     private void handlePostThought(List<Object> args){
@@ -83,14 +87,11 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
     }
 
     private void handleDoneResponding(List<Object> args){
-        setupFragmentPostThought(); //go to art screen for next player
+        setupFragmentPostThought((int) args.get(0)); //go to art screen for next player
     }
     private void handleNextPlayerIsReady(List<Object> args){
-        if(mGameBuffer.questionPoolReady()){
-            setupFragmentPostResponse();
-        } else {
-            setupFragmentPostThought();
-        }
+        //pool is always ready
+        setupFragmentPostResponse();
     }
 
     private void setupFragmentIntro(){
@@ -103,8 +104,8 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         addFragment(gameSettingsFragment);
     }
 
-    private void setupFragmentPostThought(){
-        PostThoughtFragment postQuestion = PostThoughtFragment.newInstance();
+    private void setupFragmentPostThought(int color){
+        PostThoughtFragment postQuestion = PostThoughtFragment.newInstance(color);
         addFragment(postQuestion);
     }
 

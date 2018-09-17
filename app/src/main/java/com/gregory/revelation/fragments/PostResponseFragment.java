@@ -2,6 +2,7 @@ package com.gregory.revelation.fragments;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -32,7 +33,7 @@ public class PostResponseFragment extends Fragment {
     private static final String ARG_PARAM1 = "thoughtParam";
 
     private String thought;
-
+    private int generatedColor;
     private OnFragmentInteractionListener mListener;
 
     public PostResponseFragment() {
@@ -72,6 +73,10 @@ public class PostResponseFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         TextView thoughtToRespondTo = view.findViewById(R.id.textView_questionForPlayer);
         thoughtToRespondTo.setText(getResources().getString(R.string.text_display_tapToRevealThought));
+
+        Random rnd = new Random();
+        generatedColor = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
+
         thoughtToRespondTo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,9 +87,7 @@ public class PostResponseFragment extends Fragment {
                 //set the box to a random color
                 //originally, being able to tap repeatedly for new colors was a mistake
                 //but I actually quite like it. I'll be keeping it!
-                Random rnd = new Random();
-                int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
-                questionView.setBackgroundColor(color);
+                questionView.setBackgroundColor(generatedColor);
                 questionView.setText(thought);
 
                 Button doneButton = parent.findViewById(R.id.button_doneResponding);
@@ -108,7 +111,9 @@ public class PostResponseFragment extends Fragment {
 
     public void onButtonPressed(int id) {
         if (mListener != null) {
-            mListener.onFragmentInteraction(id, null);
+            ArrayList<Object> args = new ArrayList<>();
+            args.add(generatedColor);
+            mListener.onFragmentInteraction(id, args);
         }
     }
 
