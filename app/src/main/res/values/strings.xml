@@ -18,7 +18,7 @@
     <string name="sameTurnToggle">Jake\'s Idea Mode</string>
     <string name="numberHint">##</string>
     <string name="defaultNumberPlayers">3</string>
-    <string name="suggestedNumberPlayers">minimum: 3</string>
+    <string name="suggestedNumberPlayers">recommended: 3</string>
     <string name="minMaxNumberPlayers">more is usually better</string>
     <string name="doneReading">done reading</string>
     <string name="imReady">I\'m Ready</string>
@@ -38,20 +38,22 @@
     <string name="button_readPair">i\'m done reading it out</string>
     <string name="button_postAnswer">submit response</string>
     <string name="button_startGame">start game</string>
+    <string name="button_doneResponding">go to next step</string>
+    <string name="button_waiting">waiting</string>
+    <string name="button_playerIsReady">start my turn</string>
+    <string name="button_intro">understood</string>
 
     <string name="placeHolderText_thoughtAppears">question appears</string>
     <string name="placeHolderText_responseAppears">answer appears here</string>
     <string name="placeHolderText_flavorText">once you get the message, hang up the phone</string>
 
-    <string name="button_playerIsReady">start my turn</string>
-
-    <string name="button_intro">understood</string>
-
     <string name="warning_thoughtTooShort">must use four letters or more.</string>
+    <string name="warning_tooFewPlayers">must use 1 or more players</string>
+
     <string name="text_display_tapToRevealThought">tap to reveal the question</string>
-    <string name="button_doneResponding">done answering</string>
-    <string name="textView_promptToRespond">answer out loud:</string>
-    <string name="button_waiting">waiting</string>
+
+
+    <string name="textView_promptToRespond">answer this question out loud:</string>
     <string name="textView_promptToAsk">secretly ask something:</string>
     <string name="textView_promptToPass">pass me to the next player</string>
 

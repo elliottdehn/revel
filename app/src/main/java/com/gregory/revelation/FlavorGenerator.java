@@ -6,7 +6,7 @@ public class FlavorGenerator {
     //these are not meant to be professional and do not reflect professional behavior
     //TODO: add a separate list for "inappropriate messages" in order to have a disable option
     private static final String[] texts = {
-            "you exist. congratulations!",
+            "you exist. congrats!",
             "truth is, we're all fucked up.",
             "if you hear voices, see a doctor.",
             "life is strange.",
@@ -177,7 +177,11 @@ public class FlavorGenerator {
             "getting stoned: fun. sometimes, deadly.",
             "try not to run away from yourself.",
             "you break it, you buy it. except for hearts.",
-            "i made this!"
+            "i made this!",
+            "tap here to instantly die!",
+            "if you die in this game, you die in real life.",
+            "are we having fun yet?",
+            "features no blockchain technology!"
     };
 
     //at some point, this game will supply questions to start the game off
@@ -297,7 +301,43 @@ public class FlavorGenerator {
             "are you easily impressed?",
             "what is the best money you've ever spent?",
             "what is the worst money you've ever spent?",
-            "has a celebrity death ever affected you emotionally?"
+            "has a celebrity death ever affected you emotionally?",
+            "which dating apps are you on, if any?",
+            "is there anyone in this circle you would sleep with?",
+            "would you ever participate in an orgy?",
+            "what are you putting off right now?",
+            "do you like a good tease?",
+            "what is the scariest thing to ever happen to you?",
+            "have you ever kissed the same sex? would you?",
+            "describe the advantages and disadvantages of the reverse cowgirl position.",
+            "what was your last full meal?",
+            "if you could make anything happen right now, instantly, what would it be?",
+            "can you make yourself cry?",
+            "on average, how many different people do you personally message per day?",
+            "what excites you most about new people?",
+            "what word do you use for 'vagina'?",
+            "would you ever go home with someone you had just met that night?",
+            "how do you feel about police?",
+            "what is something you wish everyone knew?",
+            "what do you wish this game would ask you?",
+            "what do you consider an art that most people wouldn't?",
+            "how do you feel about men's rights advocacy?",
+            "have you ever gone to the hospital for something? what for?",
+            "would you ever lie to get the outcome you desire?",
+            "do felons really deserve to lose their voting rights?",
+            "what small thing needs to be illegal?",
+            "if one crime could be punishable by lightning strike, what would it be?",
+            "have you ever blacked out on any substance?",
+            "should pornography of people under the age of 21 remain legal?",
+            "what do you think the next generation will have the hardest time dealing with?",
+            "have you ever masturbated to the thought of a professor?",
+            "have you lied at any point during this game?",
+            "do you have a secret that nobody on Earth knows?",
+            "would you feel comfortable getting hit on in a gym?",
+            "have you ever changed your mind on something big?",
+            "what are you deal breakers?",
+            "what are your guilty pleasures?",
+            "what is the most sexual frustration you've ever felt?"
     };
 
     public static String grabFlavor(){

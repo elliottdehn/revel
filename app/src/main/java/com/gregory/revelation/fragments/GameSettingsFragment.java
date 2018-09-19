@@ -1,5 +1,6 @@
 package com.gregory.revelation.fragments;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import com.gregory.revelation.OnFragmentInteractionListener;
 import com.gregory.revelation.R;
@@ -93,15 +95,24 @@ public class GameSettingsFragment extends Fragment {
                 EditText playerCount = getView().findViewById(R.id.enterNumberPlayers);
                 String playerCountString = playerCount.getText().toString();
                 Integer playerCountInt = Integer.parseInt(playerCountString);
+                if(playerCountInt >= 1) {
 
-                //this is an awful pattern. I need to fix this somehow.
-                //as long as I don't think of a better way, this is how it happens.
-                ArrayList<Object> gameFieldArgs = new ArrayList<>();
-                gameFieldArgs.add(playerCountInt);
+                    //this is an awful pattern. I need to fix this somehow.
+                    //as long as I don't think of a better way, this is how it happens.
+                    ArrayList<Object> gameFieldArgs = new ArrayList<>();
+                    gameFieldArgs.add(playerCountInt);
 
-                mListener.onFragmentInteraction(id, gameFieldArgs);
-            } else {
-                //nothing. this should literally never happen.
+                    mListener.onFragmentInteraction(id, gameFieldArgs);
+                } else {
+                    Activity activity = getActivity();
+                    if(activity != null) {
+                        Context context = activity.getApplicationContext();
+                        CharSequence text = getResources().getString(R.string.warning_tooFewPlayers);
+                        int duration = Toast.LENGTH_SHORT;
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.show();
+                    }
+                }
             }
         }
     }

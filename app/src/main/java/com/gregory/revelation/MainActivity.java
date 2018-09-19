@@ -24,6 +24,10 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
 
     private GameBuffer mGameBuffer;
 
+    /*
+        I make this in my free time, and as such, the code here is not representative of my professional work
+    */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,9 +80,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
             //use our supplied questions until the buffer of questions supplied by players is full enough
         }
 
-        Random rnd = new Random();
-        int generatedColor = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
-        setupFragmentPostThought(generatedColor);
+        setupFragmentPostThought(Util.getRandomColor());
     }
 
     private void handlePostThought(List<Object> args){

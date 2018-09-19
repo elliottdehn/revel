@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.gregory.revelation.OnFragmentInteractionListener;
 import com.gregory.revelation.R;
+import com.gregory.revelation.Util;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -74,9 +75,6 @@ public class PostResponseFragment extends Fragment {
         TextView thoughtToRespondTo = view.findViewById(R.id.textView_questionForPlayer);
         thoughtToRespondTo.setText(getResources().getString(R.string.text_display_tapToRevealThought));
 
-        Random rnd = new Random();
-        generatedColor = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
-
         thoughtToRespondTo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,7 +85,9 @@ public class PostResponseFragment extends Fragment {
                 //set the box to a random color
                 //originally, being able to tap repeatedly for new colors was a mistake
                 //but I actually quite like it. I'll be keeping it!
+                generatedColor = Util.getRandomColor();
                 questionView.setBackgroundColor(generatedColor);
+
                 questionView.setText(thought);
 
                 Button doneButton = parent.findViewById(R.id.button_doneResponding);
